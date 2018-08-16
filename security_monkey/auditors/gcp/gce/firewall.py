@@ -47,6 +47,9 @@ class GCEFirewallRuleAuditor(Auditor):
         Check to see if a port range exists in the allowed field.
         """
         errors = []
+        if allowed_list == None:
+            allowed_list = []
+
         for allowed in allowed_list:
             ports = allowed.get('ports', None)
             if ports:
